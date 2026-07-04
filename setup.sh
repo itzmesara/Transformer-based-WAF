@@ -58,8 +58,14 @@ echo "Activating virtual environment..."
 echo "Upgrading pip..."
 pip install --upgrade pip
 
-echo "Installing Python dependencies (Flask, PyTorch, Transformers)..."
-pip install -r requirements.txt
+echo "Installing Python dependencies..."
+if [ -f "requirements-light.txt" ]; then
+    echo "✔ Found requirements-light.txt, installing lightweight dependencies (Flask, scikit-learn, etc.)..."
+    pip install -r requirements-light.txt
+else
+    echo "✔ Installing full deep-learning dependencies (Flask, PyTorch, Transformers)..."
+    pip install -r requirements.txt
+fi
 
 echo "Initializing Model Training (TF-IDF + Logistic Regression fallback model will compile)..."
 python train.py
