@@ -175,7 +175,7 @@ function Dashboard({ stats, logs }) {
                     <strong style={{ fontFamily: 'var(--font-code)', fontSize: '0.8rem' }}>
                       {log.requestMethod} {log.requestPath.length > 25 ? log.requestPath.substring(0, 25) + '...' : log.requestPath}
                     </strong>
-                    <span style={{ color: var(--text-muted), fontSize: '0.75rem' }}>{formatTime(log.timestamp)}</span>
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>{formatTime(log.timestamp)}</span>
                   </div>
                   
                   <div 

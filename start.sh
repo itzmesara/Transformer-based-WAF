@@ -34,6 +34,11 @@ sleep 2
 echo ""
 echo "☕ Starting Spring Boot Protected Gateway on port 8080..."
 cd waf-backend
+# Set JAVA_HOME dynamically based on active java command (fixes Maven version 17 not supported error)
+if command -v java &>/dev/null; then
+    export JAVA_HOME=$(readlink -f $(which java) | sed "s:/bin/java::" | sed "s:/jre::")
+    echo "Using JAVA_HOME: $JAVA_HOME"
+fi
 if command -v mvn &>/dev/null; then
     mvn spring-boot:run &
 else
