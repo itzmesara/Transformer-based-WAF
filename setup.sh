@@ -9,7 +9,8 @@ echo "🛡️  Antigravity AI-WAF Pipeline Setup Script for Linux"
 echo "=========================================================="
 
 # 1. System Requirements Verification
-echo -e "\n🔍 Step 1: Checking System Dependencies..."
+echo ""
+echo "🔍 Step 1: Checking System Dependencies..."
 
 # Check Python
 if command -v python3 &>/dev/null; then
@@ -43,7 +44,8 @@ else
 fi
 
 # 2. Setup Python Virtual Environment and dependencies
-echo -e "\n📦 Step 2: Setting up Python AI Environment..."
+echo ""
+echo "📦 Step 2: Setting up Python AI Environment..."
 cd waf-python
 if [ ! -d "venv" ]; then
     echo "Creating virtual environment 'venv'..."
@@ -51,7 +53,7 @@ if [ ! -d "venv" ]; then
 fi
 
 echo "Activating virtual environment..."
-source venv/bin/activate
+. venv/bin/activate
 
 echo "Upgrading pip..."
 pip install --upgrade pip
@@ -66,13 +68,15 @@ deactivate
 cd ..
 
 # 3. Setup React Frontend Dependencies
-echo -e "\n📦 Step 3: Installing React Frontend Dependencies..."
+echo ""
+echo "📦 Step 3: Installing React Frontend Dependencies..."
 cd waf-frontend
 echo "Running npm install..."
 npm install
 cd ..
 
-echo -e "\n=========================================================="
+echo ""
+echo "=========================================================="
 echo "🛡️  AI-WAF Pipeline Setup Complete!"
 echo "=========================================================="
 echo "To run the application:"
